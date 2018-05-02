@@ -75,7 +75,7 @@ class InteractiveRecord
 
     # DB[:conn].execute("SELECT * FROM students WHERE name = ?", "Rebecca")
     # but we need to make this generic - it needs to always work
-    DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE #{options.keys[0].to_s} = ?", option.values[0].to_s)
+    DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE #{options.keys[0].to_s} = ?", options.values[0].to_s)
   end
 
 end
