@@ -1,5 +1,4 @@
 class Person
-class Person
   attr_accessor :name, :age, :gender, :location, :birth_city, :nationality, :favorite_ice_cream
 
   def initialize(name, age, gender, location, birth_city, nationality, favorite_ice_cream)
