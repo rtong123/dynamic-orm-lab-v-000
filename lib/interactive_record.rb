@@ -56,15 +56,26 @@ class InteractiveRecord
   end
 
   def self.find_by(options={})
-    col_name = nil
-    col_value = nil
+    # col_name = nil
+    # col_value = nil
 
-    options.each do |property, value|
-      col_name = property.to_s
-      value.is_a?(Integer) ? col_value = value : col_value = value.strip
-    end
+    # options.each do |property, value|
+      # col_name = property.to_s
+      # value.is_a?(Integer) ? col_value = value : col_value = value.strip
+    # end
 
-    DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE #{col_name} = ?", col_value)
+    # DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE #{col_name} = ?", col_value)
+#==============================================
+    # we are receiving a arguement of a hash called options
+    # example argment: {name: "Rebecca"} or {grade: 10}
+
+    # What do we want to do?
+    # Find data that matches based on the argument passed in
+    # We want to end up with a SQL command.  What do we need in order to build the SQL query?
+
+    # DB[:conn].execute("SELECT * FROM students WHERE name = ?", "Rebecca")
+    # but we need to make this generic - it needs to always work
+    DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE #{options.keys[0].string} = ?", my_hash.values[0].to_s)
   end
 
 end
